@@ -1,0 +1,24 @@
+<!--index.wxml-->
+<view class="container">
+	<view class="userinfo">
+		<view class="weui-cell weui-cell_active">
+			<view class="weui-cell__hd">
+				<view class="weui-label">账号</view>
+			</view>
+			<view class="weui-cell__bd">
+				<input class="weui-input" data-modal='LoginName' placeholder="请输入账号" value='{{LoginName}}' bindblur='handleInputChange'/>
+			</view>
+		</view>
+		<view class="weui-cell weui-cell_active">
+			<view class="weui-cell__hd">
+				<view class="weui-label">密码</view>
+			</view>
+			<view class="weui-cell__bd">
+				<input class="weui-input" placeholder="请输入密码" data-modal='LoginPassWord'  value='{{LoginPassWord}}' bindinput="setNum" bindblur='LoginPassWord'/>
+			</view>
+		</view>
+	</view>
+	<view class="weui-btn-area">
+		<button class="weui-btn" type="primary" bindtap="loginFunction" >确定</button>
+	</view>
+</view>

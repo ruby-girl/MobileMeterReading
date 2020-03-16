@@ -1,0 +1,13 @@
+<view class="list-box">
+	<view class="tabNav">
+		<view wx:for="{{navTab}}" wx:key="index" data-idx="{{index}}" bindtap="currentTab" class="tab-item {{currentTab==index ? 'cur' : ''}}"><text>{{item}}</text></view>
+	</view>
+	<view class="orderInfo">
+		<view class="orderInfo-item" wx:for="{{sendList}}" wx:key="index"> 这是内容{{item.content}} </view>
+    
+      <view class="loadding-box weui-loadmore" wx:if="{{!select.isEnd}}">
+			<i class="weui-loading"></i>
+			<text class="weui-loadmore__tips">正在加载</text>
+		</view>
+	</view>
+</view>

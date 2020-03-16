@@ -1,0 +1,25 @@
+{
+  "pages": [ 
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/list/list",
+    "pages/uploadFile/uploadFile"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#EDEDED",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [{
+      "pagePath": "pages/logs/logs",
+      "text": "日志"
+    },{
+      "pagePath": "pages/list/list",
+      "text": "列表"
+    }]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}
