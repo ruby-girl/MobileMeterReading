@@ -1,9 +1,7 @@
-
-// const {requestUrl}=require('./utils/request')
 //app.js
 App({
   onLaunch: function () {
-    
+
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
@@ -18,7 +16,7 @@ App({
     })
     // 获取用户信息
     wx.getSetting({
-      success: res => {       
+      success: res => {
         if (res.authSetting['scope.userInfo']) {
           // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
           wx.getUserInfo({
@@ -37,14 +35,14 @@ App({
       }
     })
   },
-  requestUrl(url, method, data = {}){
+  requestUrl(url, method, data = {}) {
     let header = {}
     let openid = this.globalData.openid
-    let authorization= this.globalData.authorization
+    let authorization = this.globalData.authorization
     // 启动时可将storage中的令牌挂到app.js 
     if (openid) {
       header["Authorization"] = authorization
-      header["OpenId"] = openid//登陆名
+      header["OpenId"] = openid //登陆名
     }
     return new Promise((resolve, reject) => {
       wx.request({
@@ -85,12 +83,12 @@ App({
       })
     })
   },
-  getCallBack(res){
+  getCallBack(res) {
     this.globalData.openid = res.data.data.openid
   },
   globalData: {
     userInfo: null,
-    openid:'',
-    authorization:''
+    openid: '',
+    authorization: ''
   }
 })
