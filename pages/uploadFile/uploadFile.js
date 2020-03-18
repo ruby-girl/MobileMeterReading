@@ -1,52 +1,80 @@
 //logs.js
 const {
-  login
+  UploadFile
 } = require('../../utils/api.js')
 const app = getApp()
 Page({
   data: {
     logs: [],
-    files:[],
-    gallery:false
+    fileList: [],
+    gallery: false
   },
   onLoad: function () {
-    // app.requestUrl(login, 'POST', {}).then(res => {
-      
-    // }).catch(res => {
-     
-    // })
+
   },
-  chooseImage: function (e) {
-    var that = this;
-    wx.chooseImage({
-        sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
-        sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
-        success: function (res) {   
-            // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
-            that.setData({
-                files: that.data.files.concat(res.tempFilePaths)
-            });
+  afterRead(event) {
+    const {
+      file
+    } = event.detail;
+    let _this = this
+    wx.showToast({
+        icon: "loading",
+        title: "正在上传"
+      }),
+      wx.uploadFile({
+        url: UploadFile,
+        filePath: file.path,
+        name: 'file',
+        header: {
+          "Content-Type": "multipart/form-data",
+          "FXYB_Authrization": app.globalData.authorization,
+          "OpenId": app.globalData.openid,
+        },
+        success: function (res) {
+          //上传成功返回数据
+          const {
+            fileList = []
+          } = _this.data;
+          fileList.push({
+            ...file,
+            url: file.path
+          });
+          _this.setData({
+            fileList
+          });
+
+        },
+        fail: function (e) {
+          wx.showModal({
+            title: '提示',
+            content: '上传失败',
+            showCancel: false
+          })
+        },
+        complete: function () {
+          wx.hideToast(); //隐藏Toast
         }
-    })
-},
-close: function() {
-  this.setData({
-      gallery: false,
-  });
-},
-open: function () {
-  this.setData({
-      gallery: true
-  });
-},
-delImg:function(){
-  this.setData({
-    gallery: false,
-    files: [],
-});
-},
-  onPullDownRefresh() {
-   console.info('123')
-    
+      })
+
   },
+  close: function () {
+    this.setData({
+      gallery: false,
+    });
+  },
+  open: function () {
+    this.setData({
+      gallery: true
+    });
+  },
+  delImg: function () {
+    this.setData({
+      gallery: false,
+      files: [],
+    });
+  },
+  onPullDownRefresh() {
+    console.info('123')
+
+  }
 })

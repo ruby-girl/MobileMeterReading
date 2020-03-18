@@ -1,24 +1,22 @@
 <!--index.wxml-->
 <view class="container">
-	<view class="userinfo">
-		<view class="weui-cell weui-cell_active">
-			<view class="weui-cell__hd">
-				<view class="weui-label">账号</view>
+	<view class="top-box">
+		<image src="/image/login.png" mode="widthFix"></image>
+		<view class="input-box">
+			<view class="display-flex align-items-center input-item">
+				<i class="iconfont icon-dingwei"></i>
+				<van-field value="{{LoginName}}" placeholder="请输入您的登录账号" border="{{false}}" data-modal='LoginName' bind:blur="handleInputChange" />
 			</view>
-			<view class="weui-cell__bd">
-				<input class="weui-input" data-modal='LoginName' placeholder="请输入账号" value='{{LoginName}}' bindblur='handleInputChange'/>
+			<view class="color-red">长度1-10</view>
+			<view class="display-flex align-items-center input-item">
+				<i class="iconfont icon-dingwei"></i>
+				<van-field value="{{LoginPassWord}}" type="password" placeholder="请输入您的登录密码" border="{{false}}" data-modal='LoginPassWord' bind:blur="handleInputChange" />
 			</view>
-		</view>
-		<view class="weui-cell weui-cell_active">
-			<view class="weui-cell__hd">
-				<view class="weui-label">密码</view>
-			</view>
-			<view class="weui-cell__bd">
-				<input class="weui-input" placeholder="请输入密码" data-modal='LoginPassWord'  value='{{LoginPassWord}}' bindinput="setNum" bindblur='LoginPassWord'/>
+			<view class="color-red">长度1-10</view>
+			<view class="btn-login" bindtap="loginFunction">
+				登录
 			</view>
 		</view>
 	</view>
-	<view class="weui-btn-area">
-		<button class="weui-btn" type="primary" bindtap="loginFunction" >确定</button>
-	</view>
+	<view class="footer-box">V1.0.0</view>
 </view>

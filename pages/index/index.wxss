@@ -4,21 +4,52 @@
   flex-direction: column;
   align-items: center;
 }
+
+input,input::placeholder {
+  font-size: 16px;
+}
+.top-box{
+  height:94%;
+}
+.footer-box{
+ height: 6%;
+ text-align: center;
+ color:#888888;
+}
+image{
+  width:100%;
+}
 .container{
   height: 100vh;
-  background: #EDEDED;
+  background: #fff;
 }
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
+.input-item{
+ width:610rpx;
+ margin:0 auto;
+ border-bottom:1px solid #D1D1D1;
+ /* margin-top: 20rpx; */
 }
-
-.userinfo-nickname {
-  color: #aaa;
+.input-box{
+  margin-top: 60rpx;
 }
-
-.usermotto {
-  margin-top: 200px;
+.color-red{
+  color:#FF2020;
+  font-size: 11px;
+  width:610rpx;
+  margin:0 auto;
+  padding-left:100rpx;
+}
+.btn-login{
+  color:#fff;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  width:610rpx;
+  margin:0 auto;
+  box-shadow:0px 10px 35px 0px rgba(82,130,240,0.45);
+  border-radius: 22px;
+  background: #5282F0;
+  padding:13rpx 0;
+  margin-top: 100rpx;
+  margin-bottom: 50rpx;
 }

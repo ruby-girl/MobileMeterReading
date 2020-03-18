@@ -1,0 +1,27 @@
+<view class="weui-cells__group weui-cells__group_form">
+	<view class="weui-cells weui-cells_checkbox">
+		<checkbox-group bindchange="checkboxChange">
+			<label class="weui-cell weui-cell_active weui-check__label" wx:for="{{items}}" wx:key="name">
+				<view class="weui-cell__hd">
+					<checkbox class="weui-check" value="{{item.name}}" checked="{{item.checked}}" />
+					<i class="weui-icon-checked"></i>
+				</view>
+				<view class="weui-cell__bd">
+					<view>{{item.value}}</view>
+				</view>
+			</label>
+		</checkbox-group>
+	</view>
+<radio-group bindchange="radioChange" >
+    <label>
+        <radio value="1" color='#fff'></radio>
+        <view>这是1</view>
+        <!-- 其他布局代码 -->    
+    </label>  
+    <label>
+        <radio value="2" color='#fff'></radio>
+        <view>这是2</view>
+        <!-- 其他布局代码 -->    
+    </label>   
+</radio-group>
+</view>

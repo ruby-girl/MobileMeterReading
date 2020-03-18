@@ -3,11 +3,12 @@
     "pages/index/index",
     "pages/logs/logs",
     "pages/list/list",
-    "pages/uploadFile/uploadFile"
+    "pages/uploadFile/uploadFile",
+    "pages/checkbox/checkbox"
   ],
   "window": {
     "backgroundTextStyle": "dark",
-    "navigationBarBackgroundColor": "#EDEDED",
+    "navigationBarBackgroundColor": "#5282F0",
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle": "black"
   },
@@ -20,6 +21,9 @@
       "text": "列表"
     }]
   },
-  "style": "v2",
+  "usingComponents": {
+    "van-button": "@vant/weapp/button",
+    "van-field":"@vant/weapp/field"
+  },
   "sitemapLocation": "sitemap.json"
 }

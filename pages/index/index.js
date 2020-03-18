@@ -10,45 +10,19 @@ Page({
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     LoginName: '',
     LoginPassWord: '',
-    passwordSave:''
-  },
-  //事件处理函数
-  bindViewTap: function () {
-    wx.navigateTo({
-      url: '../list/list'
-    })
+    date:''
   },
   handleInputChange(e){
    let targetData = e.currentTarget.dataset.modal; 
    let currentValue = e.detail.value; 
-   // 将 input 值赋值给 定义的变量名，this.name 可以直接取到在 data 中定义的 name 值，其效果跟 this[变量名] 是对等的，这是 js 基础
    this.setData({
     [targetData]:currentValue
   })
   },
-  setNum(e) {//密码转*
-    let value=e.detail.value
-   if(value.length>=this.data.passwordSave.length){
-     let val=this.data.passwordSave
-     val+=value.substr(this.data.passwordSave.length,value.length-this.data.passwordSave.length)
-     this.setData({
-      passwordSave:val
-     })
-   }else{
-    this.setData({
-      passwordSave:this.data.passwordSave.substr(0,value.length)
-     })
-   }
-   let Word=value.replace(/./g,"*")
-   this.setData({
-    LoginPassWord:Word
-   })
-  },
   loginFunction() { //登陆
-    app.requestUrl(login + '?LoginName=' + this.data.LoginName + '&LoginPassWord=' + this.data.passwordSave, 'POST', {}).then(res => {
+    app.requestUrl(login + '?LoginName=' + this.data.LoginName + '&LoginPassWord=' + this.data.LoginPassWord, 'POST', {}).then(res => {
       wx.setStorageSync('LoginName', this.data.LoginName); //LoginName存入本地缓存
-      wx.setStorageSync('LoginPassWord', this.data.passwordSave);
-      
+      wx.setStorageSync('LoginPassWord', this.data.LoginPassWord);
       app.globalData.openid=this.data.LoginName
       app.globalData.authorization=res.data.data
       wx.navigateTo({
@@ -100,10 +74,7 @@ Page({
       key: 'LoginPassWord',
       success (res) {
         _this.setData({
-          passwordSave: res.data,
-        })
-        _this.setData({
-          LoginPassWord: res.data.replace(/./g,"*"),
+          LoginPassWord: res.data,
         })
       }
     })

@@ -41,7 +41,7 @@ App({
     let authorization = this.globalData.authorization
     // 启动时可将storage中的令牌挂到app.js 
     if (openid) {
-      header["Authorization"] = authorization
+      header["FXYB_Authrization"] = authorization
       header["OpenId"] = openid //登陆名
     }
     return new Promise((resolve, reject) => {
