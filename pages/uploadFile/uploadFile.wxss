@@ -1,0 +1,8 @@
+.uploader-box{
+  padding: 20px;
+}
+#myCanvas{
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+}

@@ -1,26 +1,6 @@
 <!--logs.wxml-->
-<view class="container log-list">
-	<!-- <view class="weui-uploader__files" id="uploaderFiles">
-		<block wx:for="{{files}}" wx:key="*this">
-			<view class="weui-uploader__file" bindtap="open" id="{{item}}">
-				<image class="weui-uploader__img" src="{{item}}" mode="aspectFill" />
-			</view>
-		</block>
-	</view>
-	
-	<view wx:if="{{gallery}}" class="weui-gallery fadeIn" bindtap="close">
-	
-		<view class="weui-gallery__img__wrp">
-			<image mode="aspectFit" class="weui-gallery__img" src="{{files[0]}}"></image>
-		</view>
-		<view class="weui-gallery__opr">
-			<view class="weui-gallery__del" bindtap="delImg">
-				<i class="weui-icon-delete weui-icon_gallery-delete"></i>
-			</view>
-		</view>
-	</view>
-	<view class="weui-uploader__input-box">
-		<view class="weui-uploader__input" bindtap="chooseImage"></view>
-	</view> -->
+<view class="container uploader-box">
 	<van-uploader file-list="{{ fileList }}" bind:after-read="afterRead" />
+	<canvas canvas-id='attendCanvasId' id='myCanvas' style="width: {{cw}}px; height: {{ch}}px;"></canvas>
+
 </view>
