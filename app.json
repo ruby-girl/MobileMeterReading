@@ -1,6 +1,7 @@
 {
   "pages": [ 
     "pages/index/index",
+    "pages/home/home",
     "pages/logs/logs",
     "pages/list/list",
     "pages/uploadFile/uploadFile",
@@ -10,20 +11,12 @@
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#5282F0",
     "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle": "black"
-  },
-  "tabBar": {
-    "list": [{
-      "pagePath": "pages/logs/logs",
-      "text": "日志"
-    },{
-      "pagePath": "pages/list/list",
-      "text": "列表"
-    }]
+    "navigationBarTextStyle": "white"
   },
   "usingComponents": {
     "van-button": "@vant/weapp/button",
-    "van-field":"@vant/weapp/field"
+    "van-field":"@vant/weapp/field",
+    "van-search": "@vant/weapp//search/"
   },
   "sitemapLocation": "sitemap.json"
 }

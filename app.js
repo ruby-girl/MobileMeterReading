@@ -45,16 +45,17 @@ App({
       header["OpenId"] = openid //登陆名
     }
     return new Promise((resolve, reject) => {
+      wx.showToast({
+        icon: "loading"
+      })
       wx.request({
         method,
         url: url,
         header,
         data,
         success(res) {
-          // 请求成功   
-          console.info(res)
+          wx.hideToast(); 
           if (res.data.code == '0') {
-            console.log('0')
             resolve(res)
           } else if (res.data.code == 401) {
             wx.showModal({
@@ -69,7 +70,7 @@ App({
             })
           } else {
             wx.showToast({
-              title: res.data.msg ? res.data.msg : '失败',
+              title: res.data.msg ? res.data.msg : '请求失败',
               icon: 'error',
               duration: 2000
             })
@@ -77,8 +78,7 @@ App({
           }
         },
         fail(err) {
-          /* 可做一些全局错误提示，如网络错误等 */
-          console.log('失败')
+          wx.hideToast();
         }
       })
     })

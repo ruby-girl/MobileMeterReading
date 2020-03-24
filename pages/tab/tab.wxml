@@ -1,0 +1,12 @@
+<!--index.wxml-->
+<view class="container">
+	<van-tabs active="a">
+		<van-tab title="标签 1" name="a" bind:change="onChange">
+			<view class="orderInfo-item" wx:for="{{sendList}}" wx:key="index"> 这是内容{{item.content}} </view>
+			<van-loading size="24px" wx:if="{{!select.isEnd}}">加载中...</van-loading>
+		
+		</van-tab>
+		<van-tab title="标签 2" name="b">内容 2</van-tab>
+		<van-tab title="标签 3" name="c">内容 3</van-tab>
+	</van-tabs>
+</view>

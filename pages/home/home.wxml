@@ -1,0 +1,31 @@
+<!--index.wxml-->
+<view class="container">
+
+	<view class="user-info">
+		<image src="/image/home-1.png" mode="widthFix"></image>
+    <view class="absolute-box display-flex align-items-center">
+      <image src="/image/home-2.png" mode="widthFix"></image>
+      <view class="user-detail-box">
+        <text>张三</text>
+        <view class="water-box">啊实打实水厂</view>
+      </view>
+    </view>
+	</view>
+	<view class="full-container display-flex align-items-center justify-content-flex-justify">
+    <view class="display-flex align-items-center item-box">
+      <image src="/image/home-3.png" mode="widthFix" class="item-img"></image>
+      <view class="display-flex align-items-center">
+       <text>机械表抄表</text>
+       <view class="info-num">1018</view>
+      </view>
+    </view>
+    <view class="display-flex align-items-center item-box">
+      <image src="/image/home-4.png" mode="widthFix" class="item-img"></image>
+      <view class="display-flex align-items-center">
+       <text>机械表抄表</text>
+       <view class="info-num">10</view>
+      </view>
+    </view>
+	</view>
+
+</view>

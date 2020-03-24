@@ -5,14 +5,13 @@
 		<view class="input-box">
 			<view class="display-flex align-items-center input-item">
 				<i class="iconfont icon-dingwei"></i>
-				<van-field value="{{LoginName}}" placeholder="请输入您的登录账号" border="{{false}}" data-modal='LoginName' bind:blur="handleInputChange" />
+				<van-field class="flex-1" value="{{LoginName}}" maxlength="20" placeholder="请输入您的登录账号" border="{{false}}" data-modal='LoginName' bind:blur="handleInputChange" />
 			</view>
-			<view class="color-red">长度1-10</view>
-			<view class="display-flex align-items-center input-item">
+			<view class="display-flex align-items-center input-item" style="border-bottom:1px solid {{errorText.length>0?'red':'#D1D1D1'}};">
 				<i class="iconfont icon-dingwei"></i>
-				<van-field value="{{LoginPassWord}}" type="password" placeholder="请输入您的登录密码" border="{{false}}" data-modal='LoginPassWord' bind:blur="handleInputChange" />
+				<van-field class="flex-1" value="{{LoginPassWord}}" type="password" placeholder="请输入您的登录密码" border="{{false}}" data-modal='LoginPassWord' bind:blur="handleInputChange" />
 			</view>
-			<view class="color-red">长度1-10</view>
+			<view class="color-red">{{errorText}}</view>
 			<view class="btn-login" bindtap="loginFunction">
 				登录
 			</view>

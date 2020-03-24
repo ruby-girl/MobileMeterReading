@@ -10,7 +10,8 @@ Page({
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     LoginName: '',
     LoginPassWord: '',
-    date:''
+    date:'',
+    errorText:''
   },
   handleInputChange(e){
    let targetData = e.currentTarget.dataset.modal; 
@@ -18,16 +19,32 @@ Page({
    this.setData({
     [targetData]:currentValue
   })
+  if(targetData=='LoginPassWord'){//验证密码
+    var reg =/^[^\s]{6,12}$/;
+    if(!reg.test(currentValue)){     
+      this.setData({
+        errorText:'密码长度6-12位且不能出现空格'
+      })
+    }else{
+      this.setData({
+        errorText:''
+      })
+    }
+  }
   },
   loginFunction() { //登陆
+    //if(this.data.errorText) return false;
     app.requestUrl(login + '?LoginName=' + this.data.LoginName + '&LoginPassWord=' + this.data.LoginPassWord, 'POST', {}).then(res => {
       wx.setStorageSync('LoginName', this.data.LoginName); //LoginName存入本地缓存
       wx.setStorageSync('LoginPassWord', this.data.LoginPassWord);
       app.globalData.openid=this.data.LoginName
       app.globalData.authorization=res.data.data
-      wx.navigateTo({
-        url: '../uploadFile/uploadFile'
-      })
+      // wx.navigateTo({
+      //   url: '../home/home'
+      // })
+        wx.navigateTo({
+         url: '../tab/tab'
+       })
     }).catch(res => {
      
     })

@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "van-tab": "@vant/weapp/tab",
+    "van-tabs": "@vant/weapp/tabs",
+    "van-loading": "@vant/weapp/loading"
+  },
+  "navigationBarTitleText": "抄表计划"
+}
